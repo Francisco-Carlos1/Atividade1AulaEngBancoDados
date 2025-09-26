@@ -16,6 +16,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
      */
     public TelaCadastroCliente() {
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
   
@@ -160,26 +161,19 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     String email = txtEmail.getText();
     String telefone = txtTelefone.getText();
 
-    // 2. Criar um objeto da classe Cliente
-    Cliente cliente = new Cliente(); // Semelhante à criação do objeto Pessoa 
-    
-    // 3. Preencher o objeto com os dados coletados da tela
-    cliente.setNome(nome); // Semelhante a p.setNome(txt_Nome.getText()) 
+    Cliente cliente = new Cliente();
+    cliente.setNome(nome);
     cliente.setEndereco(endereco);
     cliente.setEmail(email);
     cliente.setTelefone(telefone);
 
-    // 4. Criar uma instância da classe ClienteDAO
-    ClienteDAO clienteDAO = new ClienteDAO(); // Semelhante à criação do PessoaDAO 
-    
-    // 5. Chamar o método inserir do DAO, passando o objeto cliente
-    clienteDAO.inserir(cliente); // Semelhante a pDAO.inserir(p) 
+    ClienteDAO clienteDAO = new ClienteDAO();
+    clienteDAO.inserir(cliente);
 
-    // 6. Exibir uma mensagem de sucesso para o usuário
-    javax.swing.JOptionPane.showMessageDialog(this, "Cliente salvo com sucesso!");
+    JOptionPane.showMessageDialog(this, "Cliente salvo com sucesso!");
 
-
-
+    // Adicione esta linha que estava faltando:
+    limparCampos();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
